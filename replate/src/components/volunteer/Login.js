@@ -3,9 +3,12 @@ import {Link} from "react-router-dom"
 import "./login.css"
 
 const VolunteerLogin = () => {
+    const handleSubmit= e => {
+        e.preventDefault();
+    }
     return (
         <div className="loginContainer">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" name="username"/>
                 <label htmlFor="password">Password:</label>

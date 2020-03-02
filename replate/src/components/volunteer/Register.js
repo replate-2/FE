@@ -2,9 +2,13 @@ import React from "react"
 import "./register.css"
 
 const VolunteerRegister = () => {
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+    }
     return (
         <div className="registerContainer">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="name">First and Last name:</label>
                 <input id="name" id="name"></input>
                 <label htmlFor="phone">Phone Number</label>
@@ -13,6 +17,8 @@ const VolunteerRegister = () => {
                 <input id="username" id="username"></input>
                 <label htmlFor="password">Password:</label>
                 <input type="password"></input>
+                <label htmlFor="password">Confirm Password:</label>
+                <input type="password" id="confirmPassword"></input>
                 <button type="submit">Submit</button>
             </form>
         </div>
