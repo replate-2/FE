@@ -5,13 +5,12 @@ import Dashboard from "./components/general/Dashboard"
 
 import './App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Route exact path="/" component={Dashboard} />
+      
     </div>
   );
 }
 
-export default App;
+
