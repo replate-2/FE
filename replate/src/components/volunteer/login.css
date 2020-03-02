@@ -1,0 +1,17 @@
+
+
+.loginContainer form{
+    display: inline-block;
+    flex-direction: column;
+    width: 20%;
+    padding: 3%;
+    align-items: center;
+}
+
+.loginContainer form label{
+    padding: 5%;
+}
+.loginContainer form button{
+    margin: 5%;
+}
+

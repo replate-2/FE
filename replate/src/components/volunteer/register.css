@@ -1,0 +1,17 @@
+
+.registerContainer form{
+    display: inline-block;
+    flex-direction: column;
+    width: 15%;
+    padding: 3%;
+    align-items: center;
+}
+
+.registerContainer form label{
+    padding: 5%;
+}
+.registerContainer form button{
+    margin: 5%;
+}
+
+
