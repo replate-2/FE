@@ -33,14 +33,29 @@ const Signup = ({values, errors, touched, status}) => {
             <Field className="beef1" type="text" name="username" placeholder="Pick a username" />
             {touched.Username && errors.Username && <p>{errors.Username}</p>}
           </div>
+
+          <div>
+            <Field className="beef2" type="text" name="businessName" placeholder="Business Name" />
+            {touched.Username && errors.Username && <p>{errors.Username}</p>}
+          </div>
           
           <div>
-            <Field className="beef3" type="password" name="Password" placeholder="Password" />
+            <Field className="beef3" type="text" name="businessAddress" placeholder="Business Address" />
+            {touched.Username && errors.Username && <p>{errors.Username}</p>}
+          </div>
+
+          <div>
+            <Field className="beef4" type="text" name="businessPhone" placeholder="Business Phone" />
+            {touched.Username && errors.Username && <p>{errors.Username}</p>}
+          </div>
+          
+          <div>
+            <Field className="beef5" type="password" name="password" placeholder="Password" />
             {touched.Password && errors.Password && <p>{errors.Password}</p>}
           </div>
 
           <div>
-            <Field className="beef4" type="password" name="ConfirmPassword" placeholder="ConfirmPassword" />
+            <Field className="beef6" type="password" name="ConfirmPassword" placeholder="ConfirmPassword" />
             {touched.ConfirmPassword && errors.ConfirmPassword && <p>{errors.ConfirmPassword}</p>}
           </div>         
         </Beef>
@@ -76,7 +91,7 @@ const SignUpForm = withFormik({
   }),
   handleSubmit(values, { setStatus, resetForm }) {    
     console.log("HERE IS YOUR DATA :)", values);
-
+    
       resetForm(values)
    
    
