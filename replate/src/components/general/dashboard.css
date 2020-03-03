@@ -1,0 +1,30 @@
+.buttonContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttonContainer .buisnessContainer{
+    width: 45%;
+    border-right: 1px solid grey;
+    padding: 3%;
+    margin-top:5%;
+}
+
+.buttonContainer .buisnessContainer button a,
+.buttonContainer .volunteerContainer button a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.buttonContainer .buisnessContainer button ,
+.buttonContainer .volunteerContainer button{
+    
+} 
+
+.buttonContainer .volunteerContainer{
+    width: 45%;
+    padding: 3%;
+    margin-top:5%;
+}
+
