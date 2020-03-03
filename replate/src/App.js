@@ -5,8 +5,8 @@ import Dashboard from "./components/general/Dashboard"
 import VolunteerLogin from "./components/volunteer/Login"
 import VolunteerRegister from "./components/volunteer/Register"
 import VolunteerProfile from "./components/volunteer/Profile"
-
 import './App.css';
+import SignIn from './components/business/Login';
 
 export default function App() {
   return (
@@ -18,5 +18,3 @@ export default function App() {
         </div>
   );
 }
-
-
