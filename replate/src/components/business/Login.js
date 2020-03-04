@@ -3,7 +3,6 @@ import { withFormik, Form, Field} from "formik";
 import { Link } from "react-router-dom"
 import * as yup from "yup";
 import styled from "styled-components";
-import {Link} from "react-router-dom"
 import axios from "axios"
 import Navigation from "../general/Navigation";
 
