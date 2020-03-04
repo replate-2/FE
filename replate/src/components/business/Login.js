@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field} from "formik";
+import { Link } from "react-router-dom"
 import * as yup from "yup";
 import styled from "styled-components";
 import {Link} from "react-router-dom"
@@ -43,7 +44,10 @@ const SignIn = ({values, errors, touched, status}) => {
         <button type="submit" className="button">SIGN UP</button>
 
         <div className="signin">
+
         <span>Dont have an account? <Link to="/Business/SignUp">Sign up here</Link></span>
+
+
         </div> 
         </Form>
     </div>
