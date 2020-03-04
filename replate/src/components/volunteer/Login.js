@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
 import "./login.css"
+import Navigation from "../general/Navigation"
 
 const VolunteerLogin = () => {
     const [volLogin, setVolLogin] = useState({
@@ -34,6 +35,8 @@ const VolunteerLogin = () => {
         e.preventDefault();
     }
     return (
+        <div>
+        <Navigation />
         <div className="loginContainer">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username:</label>
@@ -57,6 +60,7 @@ const VolunteerLogin = () => {
                 <button type="submit">Submit</button>
             </form>
            <h6>Don't have an account yet? <Link to="/volunteer/register">Sign up here!</Link></h6>
+        </div>
         </div>
     )
 }

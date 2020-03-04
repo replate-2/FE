@@ -3,15 +3,15 @@ import { withFormik, Form, Field} from "formik";
 import { Link } from "react-router-dom"
 import * as yup from "yup";
 import styled from "styled-components";
+import {Link} from "react-router-dom"
+import axios from "axios"
+import Navigation from "../general/Navigation";
+
 
 const Beef = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-
-
-
 
 
 const SignIn = ({values, errors, touched, status}) => {
@@ -23,49 +23,67 @@ const SignIn = ({values, errors, touched, status}) => {
   }, [status]);
 
  
-
-
   return (
-    <div className="All">
+    <div>
+    <Navigation />
+    
+    <div className="All2">
           <Form>
         <Beef>
           <div>
-            <Field className="beef1" type="text" name="username" placeholder="Pick a username" />
-            {touched.Username && errors.Username && <p>{errors.Username}</p>}
+            <Field className="beef2" type="text" name="username" placeholder="Pick a username" />
+            {touched.username && errors.username && <p>{errors.username}</p>}
           </div>
           
           <div>
-            <Field className="beef2" type="password" name="Password" placeholder="Password" />
-            {touched.Password && errors.Password && <p>{errors.Password}</p>}
+            <Field className="beef2" type="password" name="password" placeholder="Password" />
+            {touched.password && errors.password && <p>{errors.password}</p>}
           </div>   
         </Beef>
 
         <button type="submit" className="button">SIGN UP</button>
 
         <div className="signin">
-        <span>Already have an account?</span> <Link to="/business/register">sign in here</Link>  
+
+        <span>Dont have an account? <Link to="/Business/SignUp">Sign up here</Link></span>
+
+
         </div> 
         </Form>
     </div>
+    </div>
   );
-};                                                      //^^^ ADD THE LINK RIGHT THERE
+};            
 
 const SignInForm = withFormik({ 
-  mapPropsToValues({ Password, ConfirmPassword, Username}) {
+  mapPropsToValues({ username, password }) {
     return {
-      Username: Username || "",
-      Password: Password || "",
+      username: username || "",
+      password: password || "",
    
     };
   },
 
   validationSchema: yup.object({
-    Email: yup.string().required('Please enter your email'),
-    Password: yup.string().required('Please enter your password'),
-    Username: yup.string().required('Please enter a username')
+    password: yup.string().required('Please enter your password'),
+    username: yup.string().required('Please enter a username')
 
     
   }),
+  handleSubmit(values, { setStatus, resetForm }) {    
+    console.log("HERE IS YOUR DATA :)", values);
+
+      resetForm(values)
+   
+   
+    axios
+      .post("https://reqres.in/api/users/", values)
+      .then(res => {
+        console.log(res);
+        setStatus(res.data);
+      })
+      .catch(err => console.log(err.response));
+  }
 
 })(SignIn);
 
