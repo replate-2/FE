@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import "./register.css"
+import Navigation from "../general/Navigation";
 
 const VolunteerRegister = () => {
     const [pwd1, setPwd1] = useState(); //first pw input
@@ -15,6 +16,8 @@ const VolunteerRegister = () => {
         }
     }
     return (
+        <div>
+        <Navigation />
         <div className="registerContainer">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">First and Last name:</label>
@@ -34,6 +37,7 @@ const VolunteerRegister = () => {
 
                 <button type="submit">Submit</button>
             </form>
+        </div>
         </div>
     )
 }
