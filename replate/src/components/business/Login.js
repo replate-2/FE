@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
 
@@ -66,6 +66,7 @@ const handleSubmit = e => {
 
           <button type="submit">Submit</button>
         </form>
+        <h6>Don't have an account yet? <Link to="/Business/Signup">Sign up here!</Link></h6>
       </div>
     </div>
   )
