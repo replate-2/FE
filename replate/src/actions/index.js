@@ -1,4 +1,4 @@
-import axiosWithAuth from  "../utils/axiosWithAuth"
+import { axiosWithAuth } from  "../utils/axiosWithAuth"
 
 export const FETCH_DATA = "FETCH_DATA";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
