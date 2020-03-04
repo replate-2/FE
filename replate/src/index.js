@@ -5,13 +5,15 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
+import { businessReducer } from "./reducers/businessReducer"
+
 import './index.css';
 import App from './App';
 
-const store = createStore(applyMiddleware(thunk));
+const store = createStore(businessReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-<Provider>
+<Provider store={store}>
     <Router>
         <App />
     </Router>
