@@ -3,7 +3,6 @@ import {Link} from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
 import "./login.css"
-import Navigation from "../general/Navigation"
 
 const VolunteerLogin = () => {
     const [volLogin, setVolLogin] = useState({
@@ -36,31 +35,30 @@ const VolunteerLogin = () => {
     }
     return (
         <div>
-        <Navigation />
-        <div className="loginContainer">
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <input 
-                    type="text"
-                    name="username"
-                    label="username"
-                    value={volLogin.username}
-                    onChange={handleChange}
-                    className="input"
-                />
-                <label htmlFor="password">Password:</label>
-                <input 
-                    type="password"
-                    name="password"
-                    label="password"
-                    value={volLogin.password}
-                    onChange={handleChange}
-                    className="input"
-                />
-                <button type="submit">Submit</button>
-            </form>
-           <h6>Don't have an account yet? <Link to="/volunteer/register">Sign up here!</Link></h6>
-        </div>
+            <div className="loginContainer">
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="username">Username:</label>
+                    <input 
+                        type="text"
+                        name="username"
+                        label="username"
+                        value={volLogin.username}
+                        onChange={handleChange}
+                        className="input"
+                    />
+                    <label htmlFor="password">Password:</label>
+                    <input 
+                        type="password"
+                        name="password"
+                        label="password"
+                        value={volLogin.password}
+                        onChange={handleChange}
+                        className="input"
+                    />
+                    <button type="submit">Submit</button>
+                </form>
+            <h6>Don't have an account yet? <Link to="/volunteer/register">Sign up here!</Link></h6>
+            </div>
         </div>
     )
 }

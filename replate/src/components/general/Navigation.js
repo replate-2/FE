@@ -13,10 +13,13 @@ const Navigation = () =>{
     return (
             <Nav>
                 <div>
-                <Link to="/">HOME</Link>
+                <a href="">HOME</a>
                 </div>
                 <div>
                 <a href="">ABOUT US</a>
+                </div>
+                <div>
+                <Link to="/">LOG IN</Link>
                 </div>
             </Nav>
     )

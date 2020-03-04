@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field} from "formik";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import * as yup from "yup";
 import styled from "styled-components";
-import axios from "axios"
-import Navigation from "../general/Navigation";
+import { axiosWithAuth } from "../../utils/axiosWithAuth"
+
 
 
 const Beef = styled.div`
@@ -13,77 +12,64 @@ const Beef = styled.div`
 `;
 
 
-const SignIn = ({values, errors, touched, status}) => {
+const SignInForm = () => {
+  const [signInBiz, setSignInBiz] = useState({
+    username: "",
+    password: "",
+  })
 
-  const [user, setUser] = useState([]); 
+const history = useHistory();
 
-  useEffect(() => {
-    status && setUser(user => [...user, status]);
-  }, [status]);
+const handleChange = e => {
+  e.preventDefault();
+  setSignInBiz({
+      ...signInBiz, [e.target.name]: e.target.value
+  })
+}
 
- 
+const handleSubmit = e => {
+  e.preventDefault();
+  axiosWithAuth()
+    .post("api/auth/business/login", signInBiz)
+    .then(res => {
+      console.log(res)
+      window.localStorage.setItem('token', res.data.payload)
+      history.push("/Business/Profile")
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
   return (
     <div>
-    <Navigation />
-    
-    <div className="All2">
-          <Form>
-        <Beef>
-          <div>
-            <Field className="beef2" type="text" name="username" placeholder="Pick a username" />
-            {touched.username && errors.username && <p>{errors.username}</p>}
-          </div>
-          
-          <div>
-            <Field className="beef2" type="password" name="password" placeholder="Password" />
-            {touched.password && errors.password && <p>{errors.password}</p>}
-          </div>   
-        </Beef>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username</label>
+          <input 
+          type="text"
+          id="username"
+          name="username"
+          value={signInBiz.username}
+          onChange={handleChange}
+          required
+          />
 
-        <button type="submit" className="button">SIGN UP</button>
+          <label htmlFor="password">Password</label>
+          <input 
+          type="password"
+          id="password"
+          name="password"
+          value={signInBiz.password}
+          onChange={handleChange}
+          required
+          />
 
-        <div className="signin">
-
-        <span>Dont have an account? <Link to="/Business/SignUp">Sign up here</Link></span>
-
-
-        </div> 
-        </Form>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
-    </div>
-  );
-};            
+  )
+}
 
-const SignInForm = withFormik({ 
-  mapPropsToValues({ username, password }) {
-    return {
-      username: username || "",
-      password: password || "",
-   
-    };
-  },
-
-  validationSchema: yup.object({
-    password: yup.string().required('Please enter your password'),
-    username: yup.string().required('Please enter a username')
-
-    
-  }),
-  handleSubmit(values, { setStatus, resetForm }) {    
-    console.log("HERE IS YOUR DATA :)", values);
-
-      resetForm(values)
-   
-   
-    axios
-      .post("https://reqres.in/api/users/", values)
-      .then(res => {
-        console.log(res);
-        setStatus(res.data);
-      })
-      .catch(err => console.log(err.response));
-  }
-
-})(SignIn);
-
-export default SignInForm;
+export default SignInForm
