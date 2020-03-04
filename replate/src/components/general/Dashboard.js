@@ -8,7 +8,7 @@ const Dashboard = () =>{
                 <h2>Are you a Buisness or a Volunteer?</h2>
                 <div className="buttonContainer">
                     <div className="buisnessContainer">
-                        <button><Link to="/PlaceholderUrlBuisness">Buisness</Link></button>
+                        <button><Link to="/business/login">Business</Link></button>
                     </div>
                     <div className="volunteerContainer">
                     <button><Link to="/volunteer/login">Volunteer</Link></button>
