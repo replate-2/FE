@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { withFormik, Form, Field } from "formik";
-import * as yup from "yup";
 import styled from "styled-components";
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
 
 const Beef = styled.div`

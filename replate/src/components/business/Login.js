@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom"
-import * as yup from "yup";
+import { useHistory } from "react-router-dom"
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
 

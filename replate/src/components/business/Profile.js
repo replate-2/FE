@@ -1,5 +1,5 @@
 import React from "react"
 
 export default function BusinessProfile(){
-    return <div></div>
+    return <div>Welcome To Your Business Profile</div>
 }
