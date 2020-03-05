@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom"
-import * as yup from "yup";
+import { useHistory, Link } from "react-router-dom"
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
 
@@ -33,7 +32,8 @@ const handleSubmit = e => {
     .post("api/auth/business/login", signInBiz)
     .then(res => {
       console.log(res)
-      window.localStorage.setItem('token', res.data.payload)
+      window.localStorage.setItem('token', res.data.token)
+      window.localStorage.setItem('id', res.data.id)
       history.push("/Business/Profile")
     })
     .catch(err => {
@@ -67,6 +67,7 @@ const handleSubmit = e => {
 
           <button type="submit">Submit</button>
         </form>
+        <h6>Don't have an account yet? <Link to="/Business/Signup">Sign up here!</Link></h6>
       </div>
     </div>
   )
