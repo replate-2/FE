@@ -24,7 +24,8 @@ const VolunteerLogin = () => {
             .post(`api/auth/volunteer/login`, volLogin)
             .then(res => {
                 console.log(res);
-                window.localStorage.setItem('token', res.data.payload)
+                window.localStorage.setItem('token', res.data.token)
+                window.localStorage.setItem('id', res.data.id)
                 history.push("/volunteer/profile")
             })
             .catch(err => {

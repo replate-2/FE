@@ -21,9 +21,9 @@ const BusinessProfile = props => {
 
 const mapStateToProps = state => {
     return {
-        business: state.business,
-        isFetching: state.isFetching,
-        errors: state.errors
+        business: state.biz.business,
+        isFetching: state.biz.isFetching,
+        errors: state.biz.errors
     }
 }
 
