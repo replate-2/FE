@@ -32,7 +32,8 @@ const handleSubmit = e => {
     .post("api/auth/business/login", signInBiz)
     .then(res => {
       console.log(res)
-      window.localStorage.setItem('token', res.data.payload)
+      window.localStorage.setItem('token', res.data.token)
+      window.localStorage.setItem('id', res.data.id)
       history.push("/Business/Profile")
     })
     .catch(err => {

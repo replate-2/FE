@@ -1,10 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { connect } from "react-redux"
+
 
 import { fetchBusiness } from "../../actions"
 
 const BusinessProfile = props => {
-    return <div>Welcome To Your Business Profile</div>
+    
+
+    useEffect(() => {
+        props.fetchBusiness()
+    }, [])
+    console.log(props)
+    return <div>
+        <h1>Welcome</h1>
+        <p>{props.business.businessName}</p>
+        <p>{props.business.businessAddress}</p>
+        <p>{props.business.businessPhone}</p>
+        </div>
 }
 
 const mapStateToProps = state => {
