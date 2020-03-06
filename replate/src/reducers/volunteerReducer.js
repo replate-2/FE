@@ -37,9 +37,7 @@ export const volunteerReducer = (state = initialState,  action) => {
         case EDIT_DATA:
             return {
                 ...state,
-                volunteer: [
-                    ...state.volunteer
-                ],
+                volunteer: state.id,
                 isEditing: true,
                 errors: ''
             }
