@@ -1,7 +1,10 @@
 import {
     FETCH_DATA,
     FETCH_SUCCESS,
-    FETCH_FAIL
+    FETCH_FAIL, 
+    EDIT_DATA,
+    EDIT_SUCCESS,
+    EDIT_FAIL
 } from '../actions/volunteer';
 
 const initialState = {
@@ -29,6 +32,28 @@ export const volunteerReducer = (state = initialState,  action) => {
             return {
                 ...state,
                 isFetching: false,
+                errors: action.payload
+            }
+        case EDIT_DATA:
+            return {
+                ...state,
+                volunteer: [
+                    ...state.volunteer
+                ],
+                isEditing: true,
+                errors: ''
+            }
+        case EDIT_SUCCESS:
+            return {
+                ...state,
+                volunteer: action.payload,
+                isEditing: false,
+                errors: ''
+            }
+        case EDIT_FAIL:
+            return {
+                ...state,
+                isEditing: false,
                 errors: action.payload
             }
         default:
