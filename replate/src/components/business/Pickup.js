@@ -4,7 +4,17 @@ import { connect } from "react-redux"
 import { addFoodRequest } from "../../actions/index"
 
 const PickupForm = props => {
-    return <div></div>
+    const [foodDonation, setFoodDonation ] = useState({
+        foodType: "",
+        lbsOfFood: "",
+        preferredPickupTime: "",
+        businessId: ""
+    })
+
+    const inputHandler = e => {
+        e.preventDefault()
+        setFoodDonation({ ...foodDonation, [e.target.name]: e.target.value })
+    }
 }
 
 const mapStateToProps = state => {
