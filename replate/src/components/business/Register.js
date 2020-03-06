@@ -43,59 +43,68 @@ const handleSubmit = e => {
 
   return (
     <div>
-      <div>
+      <div className='cont2'>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
           <input 
           type="text"
           id="username"
+          placeholder="Username"
           name="username"
           value={signUpBiz.username}
           onChange={handleChange}
           required
           />
 
-          <label htmlFor="password">Password</label>
+          
           <input 
           type="password"
           id="password"
+          placeholder="Password"
           name="password"
           value={signUpBiz.password}
           onChange={handleChange}
           required
           />
 
-          <label htmlFor="businessName">Business Name</label>
+          
           <input 
           type="text"
           id="businessName"
+          placeholder="Business name"
           name="businessName"
           value={signUpBiz.businessName}
           onChange={handleChange}
           required
           />
 
-          <label htmlFor="businessAddress">Business Address</label>
+          
           <input 
           type="text"
           id="businessAddress"
+          placeholder="Business Address"
           name="businessAddress"
           value={signUpBiz.businessAddress}
           onChange={handleChange}
           required
           />
 
-          <label htmlFor="businessPhone">Business Phone</label>
+          
           <input 
           type="text"
           id="businessPhone"
           name="businessPhone"
           value={signUpBiz.businessPhone}
+          placeholder="Business Phone Number"
           onChange={handleChange}
           required
           />
 
-          <button type="submit">Submit</button>
+          <button className='formbutton' type="submit">Submit</button>
+
+          <div className='sb'>
+          <span>Already have an account? <Link className='link' to="/Business/SignIn">Sign in here!</Link></span>
+          </div>
+
         </form>
       </div>
     </div>
