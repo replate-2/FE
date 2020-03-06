@@ -64,7 +64,7 @@ export const addFoodRequest = food => dispatch => {
     axiosWithAuth()
         .post(`api/food`, food)
         .then(res => {
-            console.log(res.data);
+            console.log(res);
             dispatch({ type: POST_SUCCESS, payload: res.data })
         })
         .catch(err => {
@@ -72,3 +72,4 @@ export const addFoodRequest = food => dispatch => {
             dispatch({ type: POST_FAIL, payload: err })
         })
 }
+

@@ -15,9 +15,12 @@ const initialState = {
         case POST_DATA:
             return {
                 ...state,
-                food: [
-                    ...state.food
-                ],
+                food: {
+                    foodType: "",
+                    lbsOfFood: 0,
+                    preferredPickupTime: "",
+                    businessId: 0
+                },
                 isPosting: true,
                 errors: ''
             }

@@ -54,3 +54,21 @@ export const deleteVolunteer = volunteer => dispatch => {
             dispatch({ type: DELETE_FAIL, payload: err })
         })
 }
+
+export const FETCH_FOOD = "FETCH_FOOD"
+export const FETCH_FOOD_SUCCESS = "FETCH_FOOD_SUCCESS"
+export const FETCH_FOOD_FAIL = "FETCH_FOOD_FAIL"
+export const fetchFood = () => dispatch => {
+    dispatch({ type: FETCH_FOOD })
+
+    axiosWithAuth()
+        .get(`api/food`)
+        .then(res => {
+            console.log(res.data, "Food Data");
+            dispatch({ type: FETCH_FOOD_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({ type: FETCH_FOOD_FAIL, payload: err})
+        })
+}
