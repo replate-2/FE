@@ -36,3 +36,21 @@ export const editVolunteer = volunteer => dispatch => {
             dispatch({ type: EDIT_FAIL, payload: err })
         })
 }
+
+export const DELETE_DATA = "DELETE_DATA";
+export const DELETE_SUCCESS = "DELETE_SUCCESS";
+export const DELETE_FAIL = "DELETE_FAIL";
+export const deleteVolunteer = () => {
+    dispatch({ type: DELETE_DATA })
+
+    axiosWithAuth()
+        .delete(`api/users/business/${volunteerId}`)
+        .then(res => {
+            console.log(res);
+            dispatch({ type: DELETE_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({ type: DELETE_FAIL, payload: err })
+        })
+}
