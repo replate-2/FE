@@ -6,9 +6,9 @@ import { addFoodRequest } from "../../actions/index"
 const PickupForm = props => {
     const [foodDonation, setFoodDonation ] = useState({
         foodType: "",
-        lbsOfFood: "",
-        preferredPickupTime: "",
-        businessId: ""
+        lbsOfFood: 1,
+        preferredPickupTime: '',
+        businessId: 1
     })
 
     const inputHandler = e => {
@@ -36,7 +36,7 @@ const PickupForm = props => {
                 />
                 <label htmlFor="lbsOfFood">Food lbs</label>
                 <input 
-                    type="integer"
+                    type="number"
                     name="lbsOfFood"
                     label="lbsOfFood"
                     placeholder="Food lbs"
@@ -56,7 +56,7 @@ const PickupForm = props => {
                 />
                 <label htmlFor="businessId">Business id</label>
                 <input 
-                    type="integer"
+                    type="number"
                     name="businessId"
                     label="businessId"
                     placeholder="Business id"
