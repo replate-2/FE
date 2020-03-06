@@ -18,3 +18,4 @@ export const fetchBusiness = () => dispatch => {
             dispatch({ type: FETCH_FAIL, payload: err })
         })
 }
+
