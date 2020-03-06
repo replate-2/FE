@@ -28,7 +28,7 @@ const EditBusiness = props => {
 
     return (
         <div>
-            <form id="volEdit">
+            <form id="bizEdit">
                 <label htmlFor="businessName">Edit Business Name</label>
                 <input 
                     type="text"
