@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
 
 const Beef = styled.div`
