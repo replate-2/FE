@@ -10,7 +10,6 @@ const VolunteerProfile = props => {
         props.fetchVolunteer()
     }, [])
     
-    console.log(props)
     return <div>
         <h1>Welcome {props.volunteer.username}</h1>
         <h2>Your Name: {props.volunteer.name}</h2>

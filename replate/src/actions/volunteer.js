@@ -40,11 +40,11 @@ export const editVolunteer = volunteer => dispatch => {
 export const DELETE_DATA = "DELETE_DATA";
 export const DELETE_SUCCESS = "DELETE_SUCCESS";
 export const DELETE_FAIL = "DELETE_FAIL";
-export const deleteVolunteer = () => {
+export const deleteVolunteer = volunteer => dispatch => {
     dispatch({ type: DELETE_DATA })
 
     axiosWithAuth()
-        .delete(`api/users/business/${volunteerId}`)
+        .delete(`api/users/volunteer/${volunteerId}`, volunteer)
         .then(res => {
             console.log(res);
             dispatch({ type: DELETE_SUCCESS, payload: res.data})

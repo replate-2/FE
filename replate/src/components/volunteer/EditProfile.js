@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
-import { editVolunteer } from "../../actions/volunteer"
+import { editVolunteer, deleteVolunteer } from "../../actions/volunteer"
 
 const EditVolunteer = props => {
     const [editVol, setEditVol ] = useState({
@@ -19,6 +19,11 @@ const EditVolunteer = props => {
     const submitHandler = e => {
         e.preventDefault();
         props.editVolunteer(editVol);
+    }
+
+    const deleteHandler = e => {
+        e.preventDefault();
+        props.deleteVolunteer();
     }
 
     return (
@@ -51,8 +56,10 @@ const EditVolunteer = props => {
                     onChange={inputHandler}
                     className="input"
                 />
-                <button onClick={submitHandler} className="btn"><Link to="/volunteer/profile">Edit Profile</Link></button>
+                <button onClick={submitHandler} className="btn">Edit Profile</button>
+                <button onClick={deleteHandler} className="btn"><Link to="/volunteer/login">Delete Profile</Link></button>
             </form>
+            <button><Link to="/volunteer/profile">Back To Profile</Link></button>
         </div>
     )
 }
@@ -66,5 +73,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { editVolunteer }
+    { editVolunteer, deleteVolunteer }
 )(EditVolunteer);
