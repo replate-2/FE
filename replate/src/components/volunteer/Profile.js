@@ -1,5 +1,6 @@
 import React, {useEffect} from "react"
 import { connect } from "react-redux"
+import { Link } from "react-router-dom"
 
 import { fetchVolunteer } from "../../actions/volunteer"
 
@@ -9,12 +10,11 @@ const VolunteerProfile = props => {
         props.fetchVolunteer()
     }, [])
     
-    console.log(props)
     return <div>
-        <h1>Welcome</h1>
-        <p>{props.volunteer.username}</p>
-        <p>{props.volunteer.name}</p>
-        <p>{props.volunteer.phoneNumber}</p>
+        <h1>Welcome {props.volunteer.username}</h1>
+        <h2>Your Name: {props.volunteer.name}</h2>
+        <p>Your Phone Number: {props.volunteer.phoneNumber}</p>
+        <button><Link to="/volunteer/edit">Edit Profile</Link></button>
         </div>
 }
 

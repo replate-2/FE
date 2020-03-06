@@ -19,20 +19,21 @@ const VolunteerLogin = () => {
         })
     }
 
-    const handleSubmit= e => {
+    const handleSubmit = e => {
+        e.preventDefault();
         axiosWithAuth()
             .post(`api/auth/volunteer/login`, volLogin)
             .then(res => {
                 console.log(res);
                 window.localStorage.setItem('token', res.data.token)
                 window.localStorage.setItem('id', res.data.id)
+                setTimeout(() => {
                 history.push("/volunteer/profile")
+                }, 2000)
             })
             .catch(err => {
                 console.log(err)
             })
-
-        e.preventDefault();
     }
     return (
         <div>
