@@ -16,7 +16,9 @@ const BusinessProfile = props => {
         <h1>Welcome {props.business.businessName}</h1>
         <h2>Your Address: {props.business.businessAddress}</h2>
         <p>Your Phone Number: {props.business.businessPhone}</p>
-        <button><Link to="/Business/Profile"></Link></button>
+        <button><Link to="/Business/Edit">Edit Profile</Link></button>
+        <h1>Pick Up Requests</h1>
+        <button><Link to="/Business/Pickup">Add Pickup Request</Link></button>
         </div>
 }
 

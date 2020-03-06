@@ -15,6 +15,7 @@ import './components/business/business.css'
 import SignIn from './components/business/Login';
 import SignUpForm from './components/business/Register';
 import BusinessProfile from './components/business/Profile'
+import EditBusiness from "./components/business/EditProfile"
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/Business/SignIn" component={SignIn} />
             <Route path="/Business/Signup" component={SignUpForm} />
             <PrivateRoute path="/Business/Profile" component={BusinessProfile} />
+            <PrivateRoute path="/Business/Edit" component={EditBusiness} />
             </Switch>
 
         </div>

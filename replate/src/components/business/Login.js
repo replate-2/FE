@@ -34,7 +34,9 @@ const handleSubmit = e => {
       console.log(res)
       window.localStorage.setItem('token', res.data.token)
       window.localStorage.setItem('id', res.data.id)
+      setTimeout(() => {
       history.push("/Business/Profile")
+      }, 2000)
     })
     .catch(err => {
       console.log(err)
