@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import * as yup from "yup";
+import { useHistory, Link } from "react-router-dom"
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
@@ -25,19 +24,23 @@ const SignInForm = () => {
     });
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    axiosWithAuth()
-      .post("api/auth/business/login", signInBiz)
-      .then(res => {
-        console.log(res);
-        window.localStorage.setItem("token", res.data.payload);
-        history.push("/Business/Profile");
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+
+const handleSubmit = e => {
+  e.preventDefault();
+  axiosWithAuth()
+    .post("api/auth/business/login", signInBiz)
+    .then(res => {
+      console.log(res)
+      window.localStorage.setItem('token', res.data.token)
+      window.localStorage.setItem('id', res.data.id)
+      setTimeout(() => {
+      history.push("/Business/Profile")
+      }, 2000)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
 
   return (
     <div className="cont">

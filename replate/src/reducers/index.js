@@ -1,3 +1,10 @@
-const initialState = {}
+import { combineReducers } from 'redux';
+import { businessReducer } from "./businessReducer";
+import { volunteerReducer } from "./volunteerReducer";
+import { foodReducer } from "./foodReducer"
 
-export const reducer = (state = initialState, action) => {}
+export default combineReducers({
+    biz: businessReducer,
+    vol: volunteerReducer,
+    donation: foodReducer
+});
