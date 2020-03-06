@@ -4,7 +4,10 @@ import {
     FETCH_FAIL, 
     EDIT_DATA,
     EDIT_SUCCESS,
-    EDIT_FAIL
+    EDIT_FAIL,
+    DELETE_DATA,
+    DELETE_SUCCESS,
+    DELETE_FAIL
 } from '../actions/volunteer';
 
 const initialState = {
@@ -52,6 +55,26 @@ export const volunteerReducer = (state = initialState,  action) => {
             return {
                 ...state,
                 isEditing: false,
+                errors: action.payload
+            }
+        case DELETE_DATA:
+            return {
+                ...state,
+                volunteer: state.id,
+                isDeleting: true,
+                errors: ''
+            }
+        case DELETE_SUCCESS:
+            return {
+                ...state,
+                volunteer: action.payload,
+                isDeleting: false,
+                errors: ''
+            }
+        case DELETE_FAIL:
+            return {
+                ...state,
+                isDeleting: false,
                 errors: action.payload
             }
         default:
