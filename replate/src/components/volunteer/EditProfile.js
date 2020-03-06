@@ -1,5 +1,10 @@
 import React from "react"
+import { connect } from "react-redux"
 
-export default function EditVolunteer(){
+import { editVolunteer } from "../../actions"
+
+const EditVolunteer = props => {
     return <div>Edit Here!</div>
 }
+
+export default EditVolunteer;
