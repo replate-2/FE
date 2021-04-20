@@ -23,8 +23,6 @@ This is the template for the Product Vision Document that teams complete after t
 
 - What features are required for your minimum viable product?
 
-**fasfasfasfasf `f` asfasf**
-
     1. User can signup/create an account as either a `volunteer` or a
     `business` by providing a unique `username`, a `password` and a valid
     `phoneNumber`. (mobile, web)
